@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
 function buildClasses(color: string, additionalClasses?: string) {
   const cssColor = color === 'primary' ? 'cyan' : 'neutral';
@@ -7,7 +7,11 @@ function buildClasses(color: string, additionalClasses?: string) {
   return [classes, additionalClasses].join(' ');
 }
 
-export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
+export interface ButtonProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   text: string;
   color: 'primary' | 'secondary';
 }
@@ -16,7 +20,7 @@ const Button: React.FC<ButtonProps> = (props) => {
   const buttonClasses: string = buildClasses(props.color, props.className);
 
   return (
-    <button {...props} type="button" className={buttonClasses}>
+    <button {...props} className={buttonClasses}>
       {props.text}
     </button>
   );
