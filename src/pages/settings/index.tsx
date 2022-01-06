@@ -40,7 +40,7 @@ const Settings: React.FC<SettingsProps> = () => {
         id="duration"
         name="duration"
         type="range"
-        className="w-full"
+        className="w-full accent-cyan-400"
         min={1}
         max={60}
         step={1}
