@@ -22,7 +22,7 @@ function App() {
     <div className="w-screen h-screen flex justify-center items-center bg-slate-100">
       <div className="w-[375px] h-[667px] rounded-lg shadow-lg bg-white flex flex-col p-6 gap-4">
         <header className="font-bold text-3xl text-center text-red-400 pt-4 pb-4">
-          Tomato Timer
+          🍅 Tomato Timer
         </header>
 
         <Outlet></Outlet>
