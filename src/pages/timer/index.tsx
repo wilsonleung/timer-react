@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import Button from '../../components/button';
+import Modal from '../../components/modal';
 import { AppStoreCtx } from '../../utils/AppStoreProvider';
 
 const oneSecond = 1000;
@@ -18,7 +19,10 @@ const Timer: React.FC = () => {
     toCountDownString(appStore.duration * 60 * oneSecond)
   );
 
+  const [showMsg, setShowMsg] = useState(false);
+
   const startCountdownHandler = (): void => {
+    setCountDown(toCountDownString(appStore.duration * 60 * oneSecond));
     setCounting(true);
   };
 
@@ -37,7 +41,8 @@ const Timer: React.FC = () => {
         if (tempCount === 0) {
           window.clearInterval(cancel);
           setCounting(false);
-          setCountDown(toCountDownString(appStore.duration * 60 * oneSecond));
+
+          setShowMsg(true);
         }
       }, oneSecond);
     } else {
@@ -53,27 +58,39 @@ const Timer: React.FC = () => {
     };
   }, [appStore.duration, counting]);
 
+  const handleMsg = () => {
+    setShowMsg(false);
+    setCountDown(toCountDownString(appStore.duration * 60 * oneSecond));
+  };
+
   return (
-    <div className="h-full flex flex-col justify-center items-center gap-8">
-      <h1 className="font-mono text-8xl font-bold text-gray-600">
-        {countDown}
-      </h1>
-      {counting ? (
-        <Button
-          text="Stop"
-          color="secondary"
-          className=" w-full text-2xl"
-          onClick={stopCountdownHandler}
-        ></Button>
-      ) : (
-        <Button
-          text="Start"
-          color="primary"
-          className=" w-full text-2xl"
-          onClick={startCountdownHandler}
-        ></Button>
-      )}
-    </div>
+    <>
+      <Modal show={showMsg} onClick={handleMsg}>
+        <div className="text-4xl font-bold bg-red-400 text-white p-5 rounded-lg  shadow-lg">
+          Take a break 🎉
+        </div>
+      </Modal>
+      <div className="h-full flex flex-col justify-center items-center gap-8">
+        <h1 className="font-mono text-8xl font-bold text-gray-600">
+          {countDown}
+        </h1>
+        {counting ? (
+          <Button
+            text="Stop"
+            color="secondary"
+            className=" w-full text-2xl"
+            onClick={stopCountdownHandler}
+          ></Button>
+        ) : (
+          <Button
+            text="Start"
+            color="primary"
+            className=" w-full text-2xl"
+            onClick={startCountdownHandler}
+          ></Button>
+        )}
+      </div>
+    </>
   );
 };
 
