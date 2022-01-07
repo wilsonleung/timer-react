@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+
 import Button from '../../components/button';
+import { AppStoreCtx } from '../../utils/AppStoreProvider';
 
 export interface SettingsProps {}
 
 const Settings: React.FC<SettingsProps> = () => {
-  const [duration, setDuration] = useState<number>(25);
+  const appStore = useContext(AppStoreCtx);
+  const [duration, setDuration] = useState<number>(appStore.duration);
 
   const durationChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -16,7 +19,7 @@ const Settings: React.FC<SettingsProps> = () => {
     event: React.FormEvent<HTMLFormElement>
   ): void => {
     event.preventDefault();
-    console.log(duration);
+    appStore.setDuration(duration);
   };
 
   return (

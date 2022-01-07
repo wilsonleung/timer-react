@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+
 import Button from '../../components/button';
+import { AppStoreCtx } from '../../utils/AppStoreProvider';
 
 const oneSecond = 1000;
 
@@ -10,8 +12,11 @@ function toCountDownString(millSecond: number) {
 }
 
 const Timer: React.FC = () => {
+  const appStore = useContext(AppStoreCtx);
   const [counting, setCounting] = useState(false);
-  const [countDown, setCountDown] = useState('25:00');
+  const [countDown, setCountDown] = useState(
+    toCountDownString(appStore.duration * 60 * oneSecond)
+  );
 
   const startCountdownHandler = (): void => {
     setCounting(true);
@@ -24,7 +29,7 @@ const Timer: React.FC = () => {
   useEffect(() => {
     let cancel: number | undefined = undefined;
     if (counting) {
-      let tempCount = 25 * 60 * oneSecond;
+      let tempCount = appStore.duration * 60 * oneSecond;
       cancel = window.setInterval(() => {
         tempCount = tempCount - oneSecond;
         setCountDown(toCountDownString(tempCount));
@@ -40,7 +45,7 @@ const Timer: React.FC = () => {
         clearInterval(cancel);
       }
     };
-  }, [counting]);
+  }, [appStore.duration, counting]);
 
   return (
     <div className="h-full flex flex-col justify-center items-center gap-8">
