@@ -6,13 +6,11 @@ function buildClasses(color: string, additionalClasses?: string) {
   ];
 
   if (color === 'primary') {
-    cssColors.push('bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-300 ');
+    cssColors.push('bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-300');
   }
 
   if (color === 'secondary') {
-    cssColors.push(
-      'bg-neutral-400 hover:bg-neutral-500 active:bg-neutral-300 '
-    );
+    cssColors.push('bg-neutral-400 hover:bg-neutral-500 active:bg-neutral-300');
   }
 
   if (additionalClasses) {

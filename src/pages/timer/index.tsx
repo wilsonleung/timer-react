@@ -34,6 +34,7 @@ const Timer: React.FC = () => {
     let cancel: number | undefined = undefined;
     if (counting) {
       let tempCount = appStore.duration * 60 * oneSecond;
+
       cancel = window.setInterval(() => {
         tempCount = tempCount - oneSecond;
         setCountDown(toCountDownString(tempCount));
@@ -41,18 +42,17 @@ const Timer: React.FC = () => {
         if (tempCount === 0) {
           window.clearInterval(cancel);
           setCounting(false);
-
           setShowMsg(true);
         }
       }, oneSecond);
     } else {
-      if (cancel) {
+      if (cancel !== undefined) {
         window.clearInterval(cancel);
       }
     }
 
     return () => {
-      if (cancel) {
+      if (cancel !== undefined) {
         clearInterval(cancel);
       }
     };
@@ -78,14 +78,14 @@ const Timer: React.FC = () => {
           <Button
             text="Stop"
             color="secondary"
-            className=" w-full text-2xl"
+            className="w-full text-2xl"
             onClick={stopCountdownHandler}
           ></Button>
         ) : (
           <Button
             text="Start"
             color="primary"
-            className=" w-full text-2xl"
+            className="w-full text-2xl"
             onClick={startCountdownHandler}
           ></Button>
         )}
