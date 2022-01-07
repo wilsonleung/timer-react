@@ -33,6 +33,12 @@ const Timer: React.FC = () => {
       cancel = window.setInterval(() => {
         tempCount = tempCount - oneSecond;
         setCountDown(toCountDownString(tempCount));
+
+        if (tempCount === 0) {
+          window.clearInterval(cancel);
+          setCounting(false);
+          setCountDown(toCountDownString(appStore.duration * 60 * oneSecond));
+        }
       }, oneSecond);
     } else {
       if (cancel) {

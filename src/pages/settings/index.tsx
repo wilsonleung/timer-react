@@ -8,7 +8,7 @@ export interface SettingsProps {}
 
 const Settings: React.FC<SettingsProps> = () => {
   const appStore = useContext(AppStoreCtx);
-  const [duration, setDuration] = useState<number>(appStore.duration);
+  const [duration, setDuration] = useState(appStore.duration);
   const [loading, setLoading] = useState(false);
 
   const durationChangeHandler = (
