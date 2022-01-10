@@ -1,7 +1,6 @@
 import React from 'react';
 
-export interface LinkProps extends React.HTMLProps<HTMLAnchorElement> {
-  text: string;
+export interface LinkProps extends React.HTMLProps<HTMLDivElement> {
   selected?: boolean;
 }
 
@@ -19,9 +18,9 @@ const Anchor: React.FC<LinkProps> = (props) => {
   const cssClasses = linkClasses.join(' ');
 
   return (
-    <a {...props} className={cssClasses}>
-      {props.text}
-    </a>
+    <div {...props} className={cssClasses}>
+      {props.children}
+    </div>
   );
 };
 

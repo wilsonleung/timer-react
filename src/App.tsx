@@ -8,7 +8,7 @@ function App() {
   const [selectedAnchor, setSelectedAnchor] = useState<string>('Timer');
 
   const anchorHandler = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
     const target = event.target as HTMLElement;
     const targetName = target.getAttribute('name');
@@ -32,18 +32,20 @@ function App() {
           <div className="flex flex-row gap-2">
             <Anchor
               name="Timer"
-              text="Timer"
               className="flex-1 text-center"
               selected={selectedAnchor === 'Timer'}
               onClick={anchorHandler}
-            ></Anchor>
+            >
+              Timer
+            </Anchor>
             <Anchor
               name="Settings"
-              text="Settings"
               className="flex-1 text-center"
               selected={selectedAnchor === 'Settings'}
               onClick={anchorHandler}
-            ></Anchor>
+            >
+              Settings
+            </Anchor>
           </div>
         </div>
       </div>
