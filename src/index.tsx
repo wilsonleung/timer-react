@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Timer from './pages/timer';
 import Skeleton from './components/skeleton';
 
@@ -33,6 +33,7 @@ ReactDOM.render(
             }
           />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
