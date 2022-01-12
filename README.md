@@ -15,9 +15,9 @@ The purpose of this project is demonstrate how React supports some key features 
 You can compare the same application features implemented with [Angular](https://github.com/wilsonleung/timer-angular)
 
 ![Timer Page](./doc/tomato_timer_timer.png)
-![Settings Page](./doc/tomato_timer_settings.png)
 ![Count Down](./doc/tomato_timer_countdown.png)
 ![Take a break](./doc/tomato_timer_takebreak.png)
+![Settings Page](./doc/tomato_timer_settings.png)
 
 ## To run the application
 
