@@ -81,6 +81,7 @@ const Settings: React.FC<SettingsProps> = () => {
           <Button
             text={'Random'}
             color={'secondary'}
+            className="text-sm"
             onClick={randomHandler}
           ></Button>
         </div>
@@ -101,7 +102,7 @@ const Settings: React.FC<SettingsProps> = () => {
           type="submit"
           text="Apply"
           color="primary"
-          className="w-full text-2xl"
+          className="w-full text-xl"
         ></Button>
       </form>
     </>

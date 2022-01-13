@@ -1,0 +1,11 @@
+.btn {
+  @apply text-white leading-6 font-medium py-2 px-3 rounded-lg;
+}
+
+.btn.primary {
+  @apply bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-300;
+}
+
+.btn.secondary {
+  @apply bg-neutral-400 hover:bg-neutral-500 active:bg-neutral-300;
+}

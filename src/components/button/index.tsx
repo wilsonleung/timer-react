@@ -1,16 +1,15 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
+import './Button.css';
 
 function buildClasses(color: string, additionalClasses?: string) {
-  const cssColors: string[] = [
-    'text-white text-sm leading-6 font-medium py-2 px-3 rounded-lg',
-  ];
+  const cssColors: string[] = ['btn'];
 
   if (color === 'primary') {
-    cssColors.push('bg-cyan-400 hover:bg-cyan-500 active:bg-cyan-300');
+    cssColors.push('primary');
   }
 
   if (color === 'secondary') {
-    cssColors.push('bg-neutral-400 hover:bg-neutral-500 active:bg-neutral-300');
+    cssColors.push('secondary');
   }
 
   if (additionalClasses) {

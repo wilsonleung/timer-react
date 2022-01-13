@@ -78,14 +78,14 @@ const Timer: React.FC = () => {
           <Button
             text="Stop"
             color="secondary"
-            className="w-full text-2xl"
+            className="w-full text-xl"
             onClick={stopCountdownHandler}
           ></Button>
         ) : (
           <Button
             text="Start"
             color="primary"
-            className="w-full text-2xl"
+            className="w-full text-xl"
             onClick={startCountdownHandler}
           ></Button>
         )}
