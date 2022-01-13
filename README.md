@@ -11,6 +11,7 @@ The purpose of this project is demonstrate how React supports some key features 
 - client side state
 - component styling
 - lazy loading
+- component testing
 
 You can compare the same application features implemented with [Angular](https://github.com/wilsonleung/timer-angular)
 
